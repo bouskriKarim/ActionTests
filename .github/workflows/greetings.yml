@@ -1,0 +1,20 @@
+name: New Contributor Joined
+
+on:
+  member:
+    types: [added]
+  push:
+    branches:
+      - "main"
+
+jobs:
+  create-new-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create new issue
+        uses: mrdoodles/open-issue@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: Some Issue Title
+          body: Some Issue Body
+          assignees: bouskriKarim
